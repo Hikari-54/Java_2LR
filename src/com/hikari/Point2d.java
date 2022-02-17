@@ -6,14 +6,14 @@ public class Point2d {
 /* координата Y */
         private double yCoord;
 /* Конструктор инициализации */
-        public Point2d ( double x, double y) {
-            xCoord = x;
-            yCoord = y;
+        public Point2d ( double xCoord, double yCoord) {
+            this.xCoord = xCoord;
+            this.yCoord = yCoord;
         }
 /* Конструктор по умолчанию */
         public Point2d () {
 //Вызовите конструктор с двумя параметрами и определите источник.
-            this(0, 0);
+            this(5, 6);
         }
 /* Возвращение координаты X */
         public double getX () {
