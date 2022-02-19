@@ -12,6 +12,9 @@ public class Main {
         System.out.println(test3d_1.getZ());
 
         System.out.println(test3d_1.equals(test3d_2));
-        System.out.println(Point3d.similarity_3d(test3d_1, test3d_2));
+
+        System.out.println(test3d_1.similarity_3d(test3d_2));
+
+
     }
 }

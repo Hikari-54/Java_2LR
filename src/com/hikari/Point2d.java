@@ -7,6 +7,7 @@ public class Point2d {
         private double yCoord;
 /* Конструктор инициализации */
         public Point2d ( double xCoord, double yCoord) {
+
             this.xCoord = xCoord;
             this.yCoord = yCoord;
         }
@@ -32,12 +33,12 @@ public class Point2d {
             yCoord = val;
         }
 /* Этот метод сравнивает попарно координаты х и у двух объектов Point2d и возвращает результат сравнения */
-        public static boolean similarity_2d (Point2d first_object, Point2d second_object){
+         public boolean similarity_2d (Point2d second_object){
             boolean rezult = false;
-            /* Если возвращается true, то координаты двух объектов равны между собой */
-            if ((first_object.xCoord == second_object.xCoord) & (first_object.yCoord == second_object.yCoord))
+            // <this.> указывает на то, что берется значения ОБЪЕКТА, который вызвал этот метод similarity_2d
+            if ((this.xCoord == second_object.xCoord) & (this.yCoord == second_object.yCoord))
                 rezult = true;
+             /* Если возвращается true, то координаты двух объектов по x,y равны между собой */
             return rezult;
         }
-
 }
