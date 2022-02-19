@@ -26,4 +26,19 @@ public class Point3d extends Point2d{
     public void setZ (double val){
         zCoord = val;
     }
+    /* Этот метод сравнивает попарно координаты х, у, z двух объектов Point3d и возвращает результат сравнения */
+    public static boolean similarity_3d (Point3d first_object, Point3d second_object){
+        // Поскольку я не могу получить непосредственный доступ к переменным xCoord, yCoord
+        // то я вызову метод similarity_2d, который сравнит координаты по х и у между собой
+        // и результат этого сравнения запишется в переменную rezult_xy
+        boolean rezult_xy = similarity_2d(first_object, second_object);
+        // Затем я сравниваю координаты двух объектов по z
+        boolean rezult_z = first_object.zCoord == second_object.zCoord;
+        // Перемножаю результаты сравнения по x,y и z. Если все координаты двух объектов попарно равны
+        // то вернется true. В обратном случае - false
+        if (rezult_xy & rezult_z == true)
+            return true;
+        else
+            return false;
+    }
 }
