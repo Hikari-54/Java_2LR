@@ -1,6 +1,4 @@
 package com.hikari;
-// Класс DecimalFormat позволяет задать формат вывода чисел с плавающей точкой (сколько знаков после запятой, например)
-import java.text.DecimalFormat;
 
 // Ключевое слово extends указывает на то, что данный класс
 // будет наследовать все свойства класса Point2d
@@ -29,6 +27,7 @@ public class Point3d extends Point2d{
     public void setZ (double val){
         zCoord = val;
     }
+
     /* Этот метод сравнивает попарно координаты х, у, z двух объектов Point3d и возвращает результат сравнения */
     public boolean similarity_3d (Point3d second_object){
         // Строка ниже попарно сравнивает координаты ВЫЗВАВШЕГО этот метод ОБЪЕКТА (на это указывает <this.>) по х,у
@@ -44,13 +43,18 @@ public class Point3d extends Point2d{
             return false;
     }
     public double distanceTo(Point3d another_object){
-        double x = 135.243;
-
-        DecimalFormat hundredths = new DecimalFormat(".##");
-        System.out.println(hundredths.format(x));
-
-
-        return x;
+        // Реализую нахождение расстояние между двумя точками в трехмерном пространстве
+        // нахожу квадраты разностей между координатами по x,y,z
+        double sum_x = Math.pow((this.getX() - another_object.getX()), 2);
+        double sum_y = Math.pow((this.getY() - another_object.getY()), 2);
+        double sum_z = Math.pow((this.getZ() - another_object.getZ()), 2);
+        // затем извлекаю квадратный корень из суммы резултатов предыдущих операций
+        double dist = (Math.sqrt(sum_x + sum_y + sum_z));
+        // в dist - расстояние между двумя точками в пространстве
+        // ниже провожу округление. 100.0 - наличие <.0> очень важно. Если этого не будет, то вернется целое число
+        // Так как будет проведена операция деления между двумя целыми числами
+        dist = Math.round(dist * 100) / 100.0;
+        return dist;
     }
 
 }
