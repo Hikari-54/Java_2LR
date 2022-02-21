@@ -20,6 +20,7 @@ public class Main {
         System.out.println("Равны ли координаты третьей точки и первой точки? " + third_compare);
 
         // Если какая-то точка равна другой, то вычисления площади невозможны
+        // и метод computeArea() вызван не будет
         if ((first_compare | second_compare | third_compare) == false) {
             System.out.println("Площадь треугольника, образованного тремя точками, равна: ");
             System.out.println(computeArea(first_point, second_point, third_point));
